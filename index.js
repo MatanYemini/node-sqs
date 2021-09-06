@@ -7,8 +7,8 @@ var AWS = require('aws-sdk');
 
 AWS.config.update({
   region: 'us-east-2',
-  accessKeyId: 'AKIAWHLWZG3HPRRL2TNT',
-  secretAccessKey: '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'
+  accessKeyId: '',
+  secretAccessKey: ''
 });
 
 AWS.config.getCredentials(function (err) {
