@@ -1,3 +1,6 @@
 node_modules
 LICENSE
 matan-docs-service-account.json
+archive
+./archive
+Keys.js
