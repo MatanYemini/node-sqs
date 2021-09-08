@@ -5,6 +5,7 @@ const googleapisUtils = require('./googleapis-utils');
 // const sqsUtils = require('./node-sqs-producer');
 const Keys = require('./Keys');
 const NodeSQSProducer = require('./node-sqs-producer');
+const NodeSQSConsumer = require("./node-sqs-consumer");
 
 const AWS = require('aws-sdk');
 
@@ -31,6 +32,9 @@ const port = 5080;
 app.set('AWS', AWS);
 
 const nodeSQSProducer = new NodeSQSProducer(AWS);
+const nodeSQSConsumer = new NodeSQSConsumer(AWS, this.QUEUE_URL);
+
+nodeSQSConsumer.initConsumerInterval({})
 
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }));
@@ -109,7 +113,7 @@ app.use((err, req, res, _next) => {
 });
 
 app.listen(port, async () => {
-  googleapisUtils.setupJwtClient();
-  await googleapisUtils.authorize();
+  // googleapisUtils.setupJwtClient();
+  // await googleapisUtils.authorize();
   console.log(`listening at http://localhost:${port}`);
 });
